@@ -1,0 +1,1 @@
+Remotable.javascript_framework = :jquery

@@ -5,10 +5,8 @@ module Remotable
 
     case framework.to_sym
     when :jquery
-      puts '=> Using jQuery as the Javascript framework'
       ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults => ['jquery', 'remotable']
     when :prototype
-      puts '=> Using Prototype as the Javascript framework'
       ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults => ['prototype', 'effects', 'dragdrop', 'controls', 'remotable']
     else
       puts "=> WARNING: Unknown Javascript framework #{framework.to_s}"

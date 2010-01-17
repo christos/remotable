@@ -17,7 +17,7 @@ module ActionView
     module UrlHelper
       def link_to_with_remotable(*args, &block)
         options = args.extract_options!
-        
+        raise ArgumentError.new('link_to only accepts the :get HTTP method. Use a button_to instead') if options[:method] && options[:method] != 'get'
         options.reverse_merge!(:'data-authenticity_token' => form_authenticity_token)  if protect_against_forgery?
         options.reverse_merge!(:'data-remote' => options.delete(:remote)) unless options[:remote].blank?
         options.reverse_merge!(:'data-method' => options.delete(:method)) unless options[:method].blank?

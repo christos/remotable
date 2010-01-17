@@ -13,7 +13,7 @@ What it does
 
 * Overrides `form_for`, `remote_form_for`, `link_to`, `remote_link_to`, and `button_to` so that they emit HTML5-like tags with `data-remote` and `data-method` attributes instead of the current inline javascript style.
 
-* Provides a jQuery 1.4 backed library that transparently takes care of launching an AJAX request for any link or form with the `data-*` attributes
+* Extends the `javascript_include_tag :defaults` so that it loads `remotable.js` which provides the javascript code that transparently takes care of firing an XMLHttpRequest for any link or form with the `data-*` attributes and evaluates the response in the context of the page. (jQuery 1.4 required)
 
 What it doesn't do
 ==================
@@ -22,14 +22,13 @@ What it doesn't do
 
 * It only accepts `GET` as a `:method` for `link_to`. If you need an element that looks like a link but updates or destroys a resource, the use `button_to` and style the button with CSS to look like a link.
 
-Supporting other libraries
+Other javascript libraries
 ==========================
 
 It should be trivial to write your own `remotable.js` and drop it in as a replacement for `javascripts/remotable.js`
 
-The following gists provide a sample implementation for Prototype 1.6 and jQuery 1.3.2 (with livequery)
+The following gist provides a sample implementation for Prototype 1.6 and jQuery 1.3.2 (with livequery)
 
-Todo
-====
+http://gist.github.com/279619
 
 Copyright (c) 2010 Christos Zisopoulos, released under the MIT license

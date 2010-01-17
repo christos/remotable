@@ -1,26 +1,3 @@
-module Remotable
-  @@framework = nil
-  
-  def self.javascript_framework=(framework)
-
-    case framework.to_sym
-    when :jquery
-      ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults => ['jquery', 'remotable']
-    when :prototype
-      ActionView::Helpers::AssetTagHelper.register_javascript_expansion :defaults => ['prototype', 'effects', 'dragdrop', 'controls', 'remotable']
-    else
-      puts "=> WARNING: Unknown Javascript framework #{framework.to_s}"
-    end
-    
-    @@framework = framework
-  end
-  
-  def self.javascript_framework
-    @@framework
-  end
-  
-end
-
 module ActionView
   module Helpers
     module FormHelper

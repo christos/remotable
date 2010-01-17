@@ -12,8 +12,7 @@ Todo
 ====
 
 * Correctly handle link_to 'name; :url => any_path, :remote => true
-* branch jquery and prototype branch
 * override remote_form_for
 * override link_to_remote
 
-Copyright (c) 2009 Christos Zisopoulos, released under the MIT license
+Copyright (c) 2010 Christos Zisopoulos, released under the MIT license

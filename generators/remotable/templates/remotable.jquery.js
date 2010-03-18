@@ -9,7 +9,7 @@ if(typeof jQuery == 'function') {
     }
   };
 
- $(document).ready( function() {
+  $(document).ready( function() {
 
     jQuery.ajaxSetup({
       'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript");}
@@ -24,7 +24,7 @@ if(typeof jQuery == 'function') {
       var token = $link.attr('data-authenticity_token');
       var data = "_method=" + method;
       data += '&authenticity_token=' + token;
-      
+
       $.ajax({
         type: type,
         url: url,
@@ -50,11 +50,11 @@ if(typeof jQuery == 'function') {
     $("form[data-remote='true']").live('submit', function(e) {
       $this = $(this);
       var method = $this.find('input[name=_method]').val() || $this.attr('data-method') || $this.attr('method');
-      
+
       var url = $this.attr('action');
       var type = (method == 'get') ? 'GET' : 'POST';
       var data = $this.serialize() + "&_method=" + method;
-      
+
       $.ajax({
         type: type,
         url: url,
@@ -75,7 +75,8 @@ if(typeof jQuery == 'function') {
       });
 
       e.preventDefault();
-      
+
     });
+  });
 
 }

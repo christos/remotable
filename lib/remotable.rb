@@ -49,16 +49,17 @@ module ActionView
         url = options.is_a?(String) ? options : self.url_for(options)
         name ||= url
 
-        html_options.merge!("type" => "submit", "value" => name)
-        
+        html_options.merge!("type" => "submit")
+
         data_remote = html_options.delete('remote')
         if (data_remote)
           "<form method=\"#{form_method}\" action=\"#{escape_once url}\"" +
           " data-remote=\"true\" data-method=\"#{method}\" class=\"button-to\"><div>" +
-          method_tag + tag("input", html_options) + request_token_tag + "</div></form>"
+          method_tag + content_tag("button", name, html_options) + request_token_tag + "</div></form>"
+          
         else
           "<form method=\"#{form_method}\" action=\"#{escape_once url}\" class=\"button-to\"><div>" +
-          method_tag + tag("input", html_options) + request_token_tag + "</div></form>"
+          method_tag + content_tag("button", name, html_options) + request_token_tag + "</div></form>"
         end        
       end
     end
